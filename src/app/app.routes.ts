@@ -4,15 +4,22 @@ import { Routes } from '@angular/router';
 import { SigninComponent } from './signin-component/signin-component';
 
 // Admin
-import { Dashboard } from './admin/dashboard/dashboard';
-import { Condidates } from './admin/condidates/condidates';
-import { Instructors } from './admin/instructors/instructors';
-import { Trainings } from './admin/trainings/trainings';
+
 
 // Public
 import { Home } from './public/home/home';
 import { Formations } from './public/formations/formations';
 import { FormationsDetails } from './public/formations-details/formations-details';
+import { Dashboard } from './administration/dashboard/dashboard';
+import { Condidatslist } from './administration/condidat/condidatslist/condidatslist';
+import { Condidatform } from './administration/condidat/condidatform/condidatform';
+import { Formateurlist } from './administration/formateur/formateurlist/formateurlist';
+import { Formateurform } from './administration/formateur/formateurform/formateurform';
+import { Formationlist } from './administration/formation/formationlist/formationlist';
+import { Formationform } from './administration/formation/formationform/formationform';
+import { Sessionlist } from './administration/session/sessionlist/sessionlist';
+import { Sessionform } from './administration/session/sessionform/sessionform';
+import { Adminlayout } from './administration/adminlayout/adminlayout';
 
 export const routes: Routes = [
   // Public
@@ -25,12 +32,33 @@ export const routes: Routes = [
 
   // Admin
   {
-    path: 'admin-space',
-    component: Dashboard,
-    children: [
-      { path: 'condidates', component: Condidates },
-      { path: 'instructors', component: Instructors },
-      { path: 'trainings', component: Trainings },
-    ]
-  }
+  path: 'admin-space',
+  component: Adminlayout,
+  children: [
+
+    // Dashboard
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: Dashboard },
+
+    // Candidats
+    { path: 'candidates', component: Condidatslist },
+    { path: 'candidates/add', component: Condidatform },
+    { path: 'candidates/edit/:id', component: Condidatform },
+
+    // Formateurs
+    { path: 'trainers', component: Formateurlist },
+    { path: 'trainers/add', component: Formateurform },
+    { path: 'trainers/edit/:id', component: Formateurform },
+
+    // Formations
+    { path: 'formations', component: Formationlist },
+    { path: 'formations/add', component: Formationform },
+    { path: 'formations/edit/:id', component: Formationform },
+
+    // Sessions
+    { path: 'sessions', component: Sessionlist },
+    { path: 'sessions/add', component: Sessionform },
+    { path: 'sessions/edit/:id', component: Sessionform },
+  ]
+}
 ];

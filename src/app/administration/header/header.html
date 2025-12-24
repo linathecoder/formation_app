@@ -1,0 +1,21 @@
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>ISET Rades</h2>
+                <p>Admin Panel</p>
+            </div>
+            <ul class="menu">
+                 <li class="menu-item active">
+        <i>📊</i>
+        <span><a [routerLink]="'/dashboard'"  >Dashboard</a></span>
+    </li>
+    <li class="menu-item">
+        <i>👥</i><span><a [routerLink]="'/admin-space/condidates'"  >Candidates</a></span></li>
+                <li class="menu-item"><i>👨‍🏫</i><span><a [routerLink]="'/admin-space/instructors'"  >Instructors</a></span></li>
+                <li class="menu-item"><i>📚</i><span><a [routerLink]="'/admin-space/trainings'"  >Trainings</a></span></li>
+                
+                <li class="menu-item"><i>🚪</i><span>Logout</span></li>
+            </ul>
+        </aside>
+    </div>

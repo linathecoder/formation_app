@@ -1,0 +1,24 @@
+<h2>Liste des candidats</h2>
+
+<button (click)="addCandidat()"> Ajouter un candidat</button>
+
+<table border="1" width="100%">
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Email</th>
+    <th>CIN</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let c of candidats">
+    <td>{{ c.nom }}</td>
+    <td>{{ c.prenom }}</td>
+    <td>{{ c.email }}</td>
+    <td>{{ c.cin }}</td>
+    <td>
+      <button (click)="editCandidat(c.id)"></button>
+      <button (click)="deleteCandidat(c.id)"></button>
+    </td>
+  </tr>
+</table>
