@@ -1,6 +1,6 @@
 <h2>Liste des candidats</h2>
 
-<button (click)="addCandidat()"> Ajouter un candidat</button>
+<button (click)="addCandidat()">Ajouter un candidat</button>
 
 <table border="1" width="100%">
   <tr>
@@ -11,14 +11,16 @@
     <th>Actions</th>
   </tr>
 
-  <tr *ngFor="let c of candidats">
-    <td>{{ c.nom }}</td>
-    <td>{{ c.prenom }}</td>
-    <td>{{ c.email }}</td>
-    <td>{{ c.cin }}</td>
-    <td>
-      <button (click)="editCandidat(c.id)"></button>
-      <button (click)="deleteCandidat(c.id)"></button>
-    </td>
-  </tr>
+  @for (c of candidats; track c.id) {
+    <tr>
+      <td>{{ c.nom }}</td>
+      <td>{{ c.prenom }}</td>
+      <td>{{ c.email }}</td>
+      <td>{{ c.cin }}</td>
+      <td>
+        <button (click)="editCandidat(c.id)">Edit</button>
+        <button (click)="deleteCandidat(c.id)">Delete</button>
+      </td>
+    </tr>
+  }
 </table>

@@ -2,41 +2,57 @@ import { Injectable } from '@angular/core';
 import { Candidat } from '../../models/condidats';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class Condidat {
-  private storageKey = 'candidats';
+export class CandidatService {
+
+  private candidats: Candidat[] = [
+    {
+      id: 1,
+      nom: 'Ben Ali',
+      prenom: 'Sami',
+      email: 'sami.benali@gmail.com',
+      cin: '12345678'
+    },
+    {
+      id: 2,
+      nom: 'Trabelsi',
+      prenom: 'Ines',
+      email: 'ines.trabelsi@gmail.com',
+      cin: '87654321'
+    },
+    {
+      id: 3,
+      nom: 'Karray',
+      prenom: 'Youssef',
+      email: 'youssef.karray@gmail.com',
+      cin: '11223344'
+    }
+  ];
 
   constructor() {}
 
   getAll(): Candidat[] {
-    return JSON.parse(localStorage.getItem(this.storageKey) || '[]');
+    return this.candidats
   }
 
   getById(id: number): Candidat | undefined {
-    return this.getAll().find(c => c.id === id);
+    return this.candidats.find(c => c.id === id);
   }
 
   add(candidat: Candidat): void {
-    const candidats = this.getAll();
-    candidat.id = new Date().getTime(); // ID unique
-    candidats.push(candidat);
-    localStorage.setItem(this.storageKey, JSON.stringify(candidats));
+    this.candidats.push(candidat)
   }
 
   update(candidat: Candidat): void {
-    const candidats = this.getAll();
-    const index = candidats.findIndex(c => c.id === candidat.id);
+    const index = this.candidats.findIndex(c => c.id === candidat.id);
     if (index !== -1) {
-      candidats[index] = candidat;
-      localStorage.setItem(this.storageKey, JSON.stringify(candidats));
+      this.candidats[index] = candidat
     }
   }
 
   delete(id: number): void {
-    const candidats = this.getAll().filter(c => c.id !== id);
-    localStorage.setItem(this.storageKey, JSON.stringify(candidats));
+    this.candidats = this.candidats.filter(c => c.id !== id)
   }
-  
 }
-
+ 

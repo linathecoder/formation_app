@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidat } from '../../../models/condidats';
-import { Condidat as CandidatService } from '../../../services/condidats/condidat';
 import { Router } from '@angular/router'; 
+import {CandidatService } from '../../../services/condidats/condidat';
 
 @Component({
   selector: 'app-condidatslist',
@@ -34,10 +34,10 @@ export class Condidatslist implements OnInit {
   }
 
   editCandidat(id: number): void {
-    this.router.navigate(['/admin-space/candidates/edit', id]);
+    this.router.navigate(['/admin-space/condidates/edit', id]);
   }
 
   addCandidat(): void {
-    this.router.navigate(['/admin-space/candidates/add']);
+    this.router.navigate(['/admin-space/condidates/add']);
   }
 }

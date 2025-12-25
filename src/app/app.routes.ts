@@ -41,9 +41,9 @@ export const routes: Routes = [
     { path: 'dashboard', component: Dashboard },
 
     // Candidats
-    { path: 'candidates', component: Condidatslist },
-    { path: 'candidates/add', component: Condidatform },
-    { path: 'candidates/edit/:id', component: Condidatform },
+    { path: 'condidates', component: Condidatslist },
+    { path: 'condidates/add', component: Condidatform },
+    { path: 'condidates/edit/:id', component: Condidatform },
 
     // Formateurs
     { path: 'trainers', component: Formateurlist },

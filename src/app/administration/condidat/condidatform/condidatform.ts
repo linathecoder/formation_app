@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Candidat } from '../../../models/condidats';
-import { Condidat as CandidatService } from '../../../services/condidats/condidat';
+import {CandidatService } from '../../../services/condidats/condidat';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
